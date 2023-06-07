@@ -8,14 +8,14 @@ This project showcases the implementation of the BubbleSort algorithm and Binary
 
 To run this program, make sure you have the following prerequisites:
 
-- .NET SDK (version XYZ or above)
+- .NET SDK (6)
 
 ## Getting Started
 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/bubblesort-binarysearch.git
+   git clone https://github.com/EmirCGN/Bubblesort-Algorithm.git
    ```
    
   
