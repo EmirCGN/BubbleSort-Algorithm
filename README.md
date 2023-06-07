@@ -20,14 +20,14 @@ To run this program, make sure you have the following prerequisites:
    
   
  2. Navigate to the project directory:
-  ```bash
+   ```bash
    cd bubblesort-binarysearch
-  ```
+   ```
   
  3. Build the project:
    ```bash
    dotnet build
-  ```
+   ```
   
  4. Run the program:
    ```bash
