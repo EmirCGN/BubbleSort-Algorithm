@@ -32,7 +32,7 @@ To run this program, make sure you have the following prerequisites:
  4. Run the program:
    ```bash
    dotnet run
-  ```
+   ```
   
  # Usage
 When you run the program, it will prompt you to enter the number of elements in the array. Enter the desired count and press Enter. Next, you will be prompted to enter the elements of the array. Enter each element one by one and press Enter after each entry. The program will then display the unsorted array. The BubbleSort algorithm will be applied to sort the array in ascending order. The program will display the sorted array. You will then be prompted to enter a number to search for in the sorted array. Enter the desired number and press Enter. The BinarySearch algorithm will be performed to find the number in the array. The program will display whether the number was found in the array and its corresponding index if it was found.
