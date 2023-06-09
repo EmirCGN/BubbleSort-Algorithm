@@ -7,7 +7,7 @@ namespace Bubblesort
         static void Main()
         {
             Console.WriteLine("Enter the number of elements:");
-            int count = int.Parse(Console.ReadLine());
+            int count = GetValidInput();
 
             int[] array = new int[count];
 
@@ -15,7 +15,7 @@ namespace Bubblesort
 
             for (int i = 0; i < count; i++)
             {
-                array[i] = int.Parse(Console.ReadLine());
+                array[i] = GetValidInput();
             }
 
             Console.WriteLine();
@@ -37,7 +37,7 @@ namespace Bubblesort
 
             Console.WriteLine();
             Console.WriteLine("Enter a number to search in the sorted array:");
-            int target = int.Parse(Console.ReadLine());
+            int target = GetValidInput();
 
             BinarySearcher binarySearcher = new BinarySearcher();
             int index = binarySearcher.Search(array, target);
@@ -53,6 +53,31 @@ namespace Bubblesort
                 Console.WriteLine($"║ The number {target} was not found in the array.  ║");
             }
             Console.WriteLine("╚══════════════════════════════════════════╝");
+
+            Console.WriteLine();
+            Console.WriteLine("Enter a number to insert into the sorted array:");
+            int newNumber = GetValidInput();
+
+            ArrayResizer arrayResizer = new ArrayResizer();
+            array = arrayResizer.ResizeArray(array, count + 1);
+            arrayResizer.InsertNumber(array, count, newNumber);
+
+            Console.WriteLine();
+            Console.WriteLine("╔════════════════════════════════════════════╗");
+            Console.WriteLine("║    Array with Inserted Number    ║");
+            Console.WriteLine("╚════════════════════════════════════════════╝");
+            Console.WriteLine();
+            PrintArray(array);
+        }
+
+        static int GetValidInput()
+        {
+            int input;
+            while (!int.TryParse(Console.ReadLine(), out input))
+            {
+                Console.WriteLine("Invalid input. Please enter a valid integer:");
+            }
+            return input;
         }
 
         static void PrintArray(int[] array)
