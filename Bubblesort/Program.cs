@@ -12,12 +12,14 @@ namespace Bubblesort
             int[] array = new int[count];
 
             Console.WriteLine("Enter the elements:");
-
+            
+            // Input of the array elements
             for (int i = 0; i < count; i++)
             {
                 array[i] = GetValidInput();
             }
 
+            // Output of the unsorted array
             Console.WriteLine();
             Console.WriteLine("╔══════════════════════════╗");
             Console.WriteLine("║      Unsorted Array      ║");
@@ -28,6 +30,7 @@ namespace Bubblesort
             BubbleSorter bubbleSorter = new BubbleSorter();
             bubbleSorter.Sort(array);
 
+            // Output of the sorted array
             Console.WriteLine();
             Console.WriteLine("╔═════════════════════════╗");
             Console.WriteLine("║       Sorted Array      ║");
@@ -36,7 +39,8 @@ namespace Bubblesort
             PrintArray(array);
         }
 
-        static int GetValidInput()
+
+        static int GetValidInput()// Method for entering a valid integer by the user.
         {
             int input;
             while (!int.TryParse(Console.ReadLine(), out input))
@@ -83,7 +87,7 @@ namespace Bubblesort
             Console.WriteLine("╝");
         }
 
-        static void PrintBarLine(int value, bool isLast)
+        static void PrintBarLine(int value, bool isLast)//The value is displayed as a bar, while the number is displayed to the right of it
         {
             ConsoleColor previousColor = Console.ForegroundColor;
             Console.ForegroundColor = ConsoleColor.Green;
