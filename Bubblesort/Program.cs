@@ -34,40 +34,6 @@ namespace Bubblesort
             Console.WriteLine("╚═════════════════════════╝");
             Console.WriteLine();
             PrintArray(array);
-
-            Console.WriteLine();
-            Console.WriteLine("Enter a number to search in the sorted array:");
-            int target = GetValidInput();
-
-            BinarySearcher binarySearcher = new BinarySearcher();
-            int index = binarySearcher.Search(array, target);
-
-            Console.WriteLine();
-            Console.WriteLine("╔══════════════════════════════════════════╗");
-            if (index != -1)
-            {
-                Console.WriteLine($"║ The number {target} was found at index {index}! ║");
-            }
-            else
-            {
-                Console.WriteLine($"║ The number {target} was not found in the array.  ║");
-            }
-            Console.WriteLine("╚══════════════════════════════════════════╝");
-
-            Console.WriteLine();
-            Console.WriteLine("Enter a number to insert into the sorted array:");
-            int newNumber = GetValidInput();
-
-            ArrayResizer arrayResizer = new ArrayResizer();
-            array = arrayResizer.ResizeArray(array, count + 1);
-            arrayResizer.InsertNumber(array, count, newNumber);
-
-            Console.WriteLine();
-            Console.WriteLine("╔════════════════════════════════════════════╗");
-            Console.WriteLine("║    Array with Inserted Number    ║");
-            Console.WriteLine("╚════════════════════════════════════════════╝");
-            Console.WriteLine();
-            PrintArray(array);
         }
 
         static int GetValidInput()
@@ -96,11 +62,12 @@ namespace Bubblesort
             Console.Write("║");
             for (int i = 0; i < array.Length; i++)
             {
-                Console.Write($" {array[i]} ");
-                if (i < array.Length - 1)
+                if (i > 0)
                 {
                     Console.Write("║");
                 }
+
+                PrintBarLine(array[i], i == array.Length - 1);
             }
             Console.WriteLine("║");
 
@@ -114,6 +81,25 @@ namespace Bubblesort
                 }
             }
             Console.WriteLine("╝");
+        }
+
+        static void PrintBarLine(int value, bool isLast)
+        {
+            ConsoleColor previousColor = Console.ForegroundColor;
+            Console.ForegroundColor = ConsoleColor.Green;
+
+            for (int i = 0; i < value; i++)
+            {
+                Console.Write("█");
+            }
+
+            Console.ForegroundColor = previousColor;
+            Console.Write(" {0,2} Characters", value);
+
+            if (!isLast)
+            {
+                Console.WriteLine();
+            }
         }
     }
 }
